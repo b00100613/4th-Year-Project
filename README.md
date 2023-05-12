@@ -2,7 +2,8 @@ Install Python3
 
 Clone the repo
 
-cd <repo location>
+cd /4th-Year-Project
+(this might be different depending on where you cloned the repo to)
 
 pip install virtualenv
 
