@@ -1,0 +1,134 @@
+/*
+# File name: /client/static/style.js
+# Student id:B00100613
+# Student Name: Anthony Yalcin
+# University: Technological University Dublin Blanchardstown Campus.
+# Purpose: stores the styling configuration for the web applicaiton.
+*/
+html, body {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
+.content {
+  flex: 1 0 auto; 
+  padding: 20px;
+  width:75%;
+  margin:auto;
+
+}
+.footer {
+  flex-shrink: 0;
+  padding: 20px;
+  background: #42A5F6;
+  color: white;
+  width:100%;
+}
+.footer-contents {
+  width:75%;
+  margin:auto;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  font-size: 20px;
+  text-align: center;
+  width:100%;
+  background: #42A5F6;
+}
+
+.header-challenge {
+  width: 100%;
+  background: #ededed;
+ 
+}
+
+.header-challenge-contents{
+  display: flex;
+  flex-direction: row;
+  font-size: 15px;
+  padding-top:16px;  
+  margin:auto;
+  justify-content: space-between;
+  width:75%;
+}
+.header-status{
+  padding-left:20px;
+}
+.header-submit{
+  padding-right:20px;
+}
+
+.header-challenge-contents p{
+  margin-top:0;
+}
+.navbar {
+  display: flex;
+  background: #42A5F6;
+  width:75%;
+  margin:auto;
+}
+
+.navbar a {
+  color: white;
+  padding: 14px 20px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+body {
+  margin: 0;
+  font: 16px Sans-Serif;
+}
+
+ /* unvisited link */
+.content a:link {
+  color: #42A5F6;
+}
+
+/* visited link */
+.content a:visited {
+  color: #42A5F6;
+}
+
+/* mouse over link */
+.content a:hover {
+  color: ##58aaed;
+}
+
+/* selected link */
+.content a:active {
+  color: #58aaed;
+} 
+
+.challenge-list{
+  width:100%;
+}
+.challenge-list ul{
+  list-style-type: none;
+}
+.challenge-list li{
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+}
+.challenge-list div{
+margin-bottom: 10px;
+padding-top: 10px;
+padding-bottom: 10px;
+background: #ededed;
+border-radius: 10px;
+}
+
+.challenge-list a,custom{
+padding-left: 10px;
+padding-right: 10px;
+}

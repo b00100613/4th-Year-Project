@@ -1,0 +1,44 @@
+<!--
+# File name: /client/template/jwt_challenge.html
+# Student id:B00100613
+# Student Name: Anthony Yalcin
+# University: Technological University Dublin Blanchardstown Campus.
+# Purpose: the template for all jwt challenge login pages
+-->
+{% extends "base.html" %}
+{% block content %}
+{% include "challenge_status.html" %}
+
+<div class="content">
+
+<a href="/challenges">&lt;Go Back</a>
+<h1 id="title">Challenge -<span id="challenge_id"></span>
+</h1>
+<h2>Description:</h2>
+<p id="challenge_description"></p>
+<script type="text/javascript">getchallenge()</script>
+
+<form method="POST" autocomplete="off" id="loginForm">
+        <p>username</p>
+        <input name="username">
+        <p>password</p>
+        <input type="password" name="password">
+        <p></p>
+        <input type="submit">
+    </form>
+       <script>
+    sessionStorage.clear(); // Session is cleared when the page is visted, as old jwt tokens might still be stored.
+    localStorage.clear(); // local storage is cleared when the page is visted, as old user_id might still be stored.
+ var loginForm = document.getElementById('loginForm'); 
+    loginForm.addEventListener('submit', event => {
+  // disable default action
+  event.preventDefault()
+  submitLogin(loginForm); 
+  //event listener for when the submit button is clicked
+})
+
+</script>
+<p id="resource_body"></p> <!--this is where the response from XHR request updates the content-->
+
+</div>
+{% endblock %}

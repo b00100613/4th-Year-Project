@@ -1,0 +1,38 @@
+<!--
+# File name: /client/template/admin.html
+# Student id:B00100613
+# Student Name: Anthony Yalcin
+# University: Technological University Dublin Blanchardstown Campus.
+# Purpose: the template for the status bar
+-->
+{% block content %}
+<div class="header-challenge">
+	<div class="header-challenge-contents">
+		<div class="header-status">
+			<p id="status"></p>
+		</div>
+		<div class="header-submit">
+			<form id="flag_form" method="POST">
+				Enter flag here:
+				<input id="flagInput" name="flag" value="">
+				<input type="submit" value="Submit" >
+			</form>
+		</div>
+	</div>
+</div>
+
+
+<script type="text/javascript">
+
+check_status()
+
+setInterval(check_status,5000);
+  var form = document.getElementById('flag_form');
+    form.addEventListener('submit', event => {
+  // disable default action
+  event.preventDefault()
+  submitFlag(form);
+  document.getElementById("flag_form").reset();
+})
+</script>
+{% endblock %}

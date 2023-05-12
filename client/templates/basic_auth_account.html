@@ -1,0 +1,27 @@
+<!--
+# File name: /client/template/basic_auth_account.html
+# Student id:B00100613
+# Student Name: Anthony Yalcin
+# University: Technological University Dublin Blanchardstown Campus.
+# Purpose: the template for the for the protected /protected page
+-->
+{% extends "basic_auth_challenge.html" %}
+{% block content %}
+{% include "challenge_status.html" %}
+
+<div class="content">
+<a href="/challenges">&lt;Go Back</a>
+<h1 id="title">Challenge <span id="challenge_id"></span>
+</h1>
+<h2>Description:</h2>
+<p id="challenge_description"></p>
+<script type="text/javascript">getchallenge()</script>
+
+<p><span id="resource_body"></span></p>
+<script>	
+	basicAuthAccount();
+</script>
+</div>
+
+
+{% endblock %}

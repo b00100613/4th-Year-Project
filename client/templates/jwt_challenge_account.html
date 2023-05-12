@@ -1,0 +1,40 @@
+<!--
+# File name: /client/template/jwt_challenge_account.html
+# Student id:B00100613
+# Student Name: Anthony Yalcin
+# University: Technological University Dublin Blanchardstown Campus.
+# Purpose: the template for all jwt account pages
+-->
+{% extends "jwt_challenge.html" %}
+{% block content %}
+{% include "challenge_status.html" %}
+
+<div class="content">
+<a href="/challenges">&lt;Go Back</a>
+<h1 id="title">Challenge <span id="challenge_id"></span>
+</h1>
+<h2>Description:</h2>
+<p id="challenge_description"></p>
+<script type="text/javascript">getchallenge()</script>
+
+<p><span id="resource_body"></span></p>
+<div id="hidden_name_update" hidden>
+	<form method="POST" id="update_name">
+		<p>Update name:</p>
+		<input name="name">
+		<input type="submit" value="Submit">
+	</form>
+</div>
+</div>
+<script>
+getProtected(); // when this page loads a request is sent to the api to get the account information
+ var updateform = document.getElementById('update_name');//this from is hidden unless the challenge is 6 or 7
+    updateform.addEventListener('submit', event => {
+  // disable default action
+  event.preventDefault()
+  updateName(updateform); 
+});
+
+</script>
+
+{% endblock %}

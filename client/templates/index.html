@@ -1,0 +1,23 @@
+<!--
+# File name: /client/template/admin.html
+# Student id:B00100613
+# Student Name: Anthony Yalcin
+# University: Technological University Dublin Blanchardstown Campus.
+# Purpose: the template for the index page 
+-->
+{% extends "base.html" %}
+{% block content %}
+<div class="content">
+  <h1>
+        Welcome to Risky API
+  </h1>
+  <p>This web application is a front end to the vulnerable API, it helps visulize the API requests and responses. You can select which client you would like to use to invoke the API calls.<br> Note that for Postman you will need to install the client and import the downloaded files to be able to use it.
+
+  </p>
+  <ul class="challenge-list">
+    <h2>Choose your client:</h2>
+    <li><h3><a href="/challenges">Web Application</a></h3></li>
+    <li><h3><a href="/api/download/postman">Postman</a></h3></li>
+</ul>
+</div>
+{% endblock %}

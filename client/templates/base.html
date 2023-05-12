@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+    <!--
+    # File name: /client/template/base.html
+    # Student id:B00100613
+    # Student Name: Anthony Yalcin
+    # University: Technological University Dublin Blanchardstown Campus.
+    # Purpose: the boilerplate for the rest of the web application
+    -->
+    <head>
+        <title>Welcome to RiskyAPI</title>
+        <link rel="stylesheet" href="{{ url_for('client_blueprint.static',filename='style.css') }}">
+        <script src="{{ url_for('client_blueprint.static',filename='script.js') }}"></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+    <div class="header">
+        <div class="navbar">
+          <a href="/"><strong>Risky API</strong></a>
+          <a href="/">Home</a>
+          <a href="/challenges">Challenges</a>
+         </div>
+    </div>
+        {% block content %}
+
+
+   
+        {% endblock %}
+    </body>
+    <div class="footer">
+        <div class="footer-contents">
+            Footer
+        </div> 
+    </div>
+</html>

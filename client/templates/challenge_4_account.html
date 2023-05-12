@@ -1,0 +1,25 @@
+<!--
+# File name: /client/template/challenge_4_account.html
+# Student id:B00100613
+# Student Name: Anthony Yalcin
+# University: Technological University Dublin Blanchardstown Campus.
+# Purpose: the template for challenge 4 account page
+# this is different as the user click a link to send the request to get the account information
+-->
+{% extends "jwt_challenge.html" %}
+{% block content %}
+{% include "challenge_status.html" %}
+
+<div class="content">
+<a href="/challenges">&lt;Go Back</a>
+<h1 id="title">challenge <span id="challenge_id"></span>
+</h1>
+<h2>Description:</h2>
+<p id="challenge_description"></p>
+<script type="text/javascript">getchallenge();user_id=localStorage.getItem("user_id")</script>
+<p>Click here to get account information: <a onclick="getProtected(user_id)"; href="#">Account</a>
+
+<p><span id="resource_body"></span></p>
+</div>
+
+{% endblock %}

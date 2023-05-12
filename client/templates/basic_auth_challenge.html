@@ -1,0 +1,23 @@
+<!--
+# File name: /client/template/basic_auth_challenge.html
+# Student id:B00100613
+# Student Name: Anthony Yalcin
+# University: Technological University Dublin Blanchardstown Campus.
+# Purpose: the template for the challenge 1 login page
+-->
+{% extends "base.html" %}
+{% block content %}
+{% include "challenge_status.html" %}
+
+<div class="content">
+	<a href="/challenges">&lt;Go Back</a>
+	<h1 id="title">Challenge <span id="challenge_id"></span>
+	<h2>Description:</h2>
+	<p id="challenge_description"></p>
+	<p>The password can be found in the following wordlist: <a href="/api/download/commonpasswords">Common Passwords</a></p>
+	<script type="text/javascript">getchallenge()</script>
+	<p>To login click here: <a href="/challenge/1/account">Login</a>
+	<p id="resource_body"></p>
+
+</div>
+{% endblock %}
