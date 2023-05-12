@@ -1,0 +1,1933 @@
+{
+	"info": {
+		"_postman_id": "0da00f00-b599-4e05-b5b1-01e6bca3cd22",
+		"name": "Vulnerable API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27351846"
+	},
+	"item": [
+		{
+			"name": "challenge Info",
+			"item": [
+				{
+					"name": "GET /api/challenges",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://10.211.55.3:8000/api/challenges",
+							"protocol": "http",
+							"host": [
+								"10",
+								"211",
+								"55",
+								"3"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"challenges"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /api/challenge/{id}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseJson = pm.response.json();",
+									"var access_token = responseJson.access_token;",
+									"pm.environment.set(\"access_token\", access_token)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"reset\":\"true\"}"
+						},
+						"url": {
+							"raw": "http://10.211.55.3:8000/api/challenge/1",
+							"protocol": "http",
+							"host": [
+								"10",
+								"211",
+								"55",
+								"3"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"challenge",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Challenge 1 - Brute Force Basic Authentication",
+			"item": [
+				{
+					"name": "GET /api/challenge/1/protected",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "userpassword1",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "user1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://10.211.55.3:8000/api/challenge/1/protected",
+							"protocol": "http",
+							"host": [
+								"10",
+								"211",
+								"55",
+								"3"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"challenge",
+								"1",
+								"protected"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /api/challenge/1/submit_flag",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"flag\":\"\"}"
+						},
+						"url": {
+							"raw": "http://10.211.55.3:8000/api/challenge/1/submit_flag",
+							"protocol": "http",
+							"host": [
+								"10",
+								"211",
+								"55",
+								"3"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"challenge",
+								"1",
+								"submit_flag"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /api/challenge/1/status",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://10.211.55.3:8000/api/challenge/1/status",
+							"protocol": "http",
+							"host": [
+								"10",
+								"211",
+								"55",
+								"3"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"challenge",
+								"1",
+								"status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /api/challenge/1/reset",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"reset\":true}"
+						},
+						"url": {
+							"raw": "http://10.211.55.3:8000/api/challenge/1/reset",
+							"protocol": "http",
+							"host": [
+								"10",
+								"211",
+								"55",
+								"3"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"challenge",
+								"1",
+								"reset"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "challenge 2 - Unverified JWT Signature",
+			"item": [
+				{
+					"name": "POST /api/challenge/2/login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseJson = pm.response.json();",
+									"var access_token = responseJson.access_token;",
+									"pm.environment.set(\"access_token\", access_token)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"username\":\"user1\",\"password\":\"userpassword1\"}"
+						},
+						"url": {
+							"raw": "http://10.211.55.3:8000/api/challenge/2/login",
+							"protocol": "http",
+							"host": [
+								"10",
+								"211",
+								"55",
+								"3"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"challenge",
+								"2",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /api/challenge/2/account",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://10.211.55.3:8000/api/challenge/2/account",
+							"protocol": "http",
+							"host": [
+								"10",
+								"211",
+								"55",
+								"3"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"challenge",
+								"2",
+								"account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /api/challenge/2/submit_flag",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"flag\":\"\"}"
+						},
+						"url": {
+							"raw": "http://10.211.55.3:8000/api/challenge/3/submit_flag",
+							"protocol": "http",
+							"host": [
+								"10",
+								"211",
+								"55",
+								"3"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"challenge",
+								"3",
+								"submit_flag"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /api/challenge/2/status",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://10.211.55.3:8000/api/challenge/2/status",
+							"protocol": "http",
+							"host": [
+								"10",
+								"211",
+								"55",
+								"3"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"challenge",
+								"2",
+								"status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /api/challenge/2/reset",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"reset\":true}"
+						},
+						"url": {
+							"raw": "http://10.211.55.3:8000/api/challenge/2/reset",
+							"protocol": "http",
+							"host": [
+								"10",
+								"211",
+								"55",
+								"3"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"challenge",
+								"2",
+								"reset"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "challenge 3 - Weak JWT Secret",
+			"item": [
+				{
+					"name": "POST /api/challenge/3/login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseJson = pm.response.json();",
+									"var access_token = responseJson.access_token;",
+									"pm.environment.set(\"access_token\", access_token)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"username\":\"user1\",\"password\":\"userpassword1\"}"
+						},
+						"url": {
+							"raw": "http://10.211.55.3:8000/api/challenge/3/login",
+							"protocol": "http",
+							"host": [
+								"10",
+								"211",
+								"55",
+								"3"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"challenge",
+								"3",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /api/challenge/3/account",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://10.211.55.3:8000/api/challenge/3/account",
+							"protocol": "http",
+							"host": [
+								"10",
+								"211",
+								"55",
+								"3"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"challenge",
+								"3",
+								"account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /api/challenge/3/submit_flag",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"flag\":\"\"}"
+						},
+						"url": {
+							"raw": "http://10.211.55.3:8000/api/challenge/3/submit_flag",
+							"protocol": "http",
+							"host": [
+								"10",
+								"211",
+								"55",
+								"3"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"challenge",
+								"3",
+								"submit_flag"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /api/challenge/3/status",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://10.211.55.3:8000/api/challenge/3/status",
+							"protocol": "http",
+							"host": [
+								"10",
+								"211",
+								"55",
+								"3"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"challenge",
+								"3",
+								"status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /api/challenge/3/reset",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"reset\":true}"
+						},
+						"url": {
+							"raw": "http://10.211.55.3:8000/api/challenge/3/reset",
+							"protocol": "http",
+							"host": [
+								"10",
+								"211",
+								"55",
+								"3"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"challenge",
+								"3",
+								"reset"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Challenge 4 - Broken Object Level Authorization",
+			"item": [
+				{
+					"name": "POST /api/challenge/4/login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseJson = pm.response.json();",
+									"var access_token = responseJson.access_token;",
+									"pm.environment.set(\"access_token\", access_token)",
+									"var user_id = responseJson.user_id;",
+									"pm.environment.set(\"user_id\", user_id)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"username\":\"user1\",\"password\":\"userpassword1\"}"
+						},
+						"url": {
+							"raw": "http://10.211.55.3:8000/api/challenge/4/login",
+							"protocol": "http",
+							"host": [
+								"10",
+								"211",
+								"55",
+								"3"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"challenge",
+								"4",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /api/challenge/4/account",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://10.211.55.3:8000/api/challenge/4/account",
+							"protocol": "http",
+							"host": [
+								"10",
+								"211",
+								"55",
+								"3"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"challenge",
+								"4",
+								"account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /api/challenge/4/account/{id}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://10.211.55.3:8000/api/challenge/4/account/{{user_id}}",
+							"protocol": "http",
+							"host": [
+								"10",
+								"211",
+								"55",
+								"3"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"challenge",
+								"4",
+								"account",
+								"{{user_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /api/challenge/4/submit_flag",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"flag\":\"\"}"
+						},
+						"url": {
+							"raw": "http://10.211.55.3:8000/api/challenge/4/submit_flag",
+							"protocol": "http",
+							"host": [
+								"10",
+								"211",
+								"55",
+								"3"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"challenge",
+								"4",
+								"submit_flag"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /api/challenge/4/status",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://10.211.55.3:8000/api/challenge/4/status",
+							"protocol": "http",
+							"host": [
+								"10",
+								"211",
+								"55",
+								"3"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"challenge",
+								"4",
+								"status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /api/challenge/4/reset",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"reset\":true}"
+						},
+						"url": {
+							"raw": "http://10.211.55.3:8000/api/challenge/4/reset",
+							"protocol": "http",
+							"host": [
+								"10",
+								"211",
+								"55",
+								"3"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"challenge",
+								"4",
+								"reset"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Challenge 5 - Broken Object Level Authorization",
+			"item": [
+				{
+					"name": "POST /api/challenge/5/login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseJson = pm.response.json();",
+									"var access_token = responseJson.access_token;",
+									"pm.environment.set(\"access_token\", access_token)",
+									"var user_id = responseJson.user_id;",
+									"pm.environment.set(\"user_id\", user_id)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"username\":\"user1\",\"password\":\"userpassword1\"}"
+						},
+						"url": {
+							"raw": "http://10.211.55.3:8000/api/challenge/5/login",
+							"protocol": "http",
+							"host": [
+								"10",
+								"211",
+								"55",
+								"3"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"challenge",
+								"5",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /api/challenge/5/account",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-USER-ID",
+								"value": "2",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://10.211.55.3:8000/api/challenge/5/account",
+							"protocol": "http",
+							"host": [
+								"10",
+								"211",
+								"55",
+								"3"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"challenge",
+								"5",
+								"account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /api/challenge/5/submit_flag",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"flag\":\"\"}"
+						},
+						"url": {
+							"raw": "http://10.211.55.3:8000/api/challenge/5/submit_flag",
+							"protocol": "http",
+							"host": [
+								"10",
+								"211",
+								"55",
+								"3"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"challenge",
+								"5",
+								"submit_flag"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /api/challenge/5/status",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://10.211.55.3:8000/api/challenge/5/status",
+							"protocol": "http",
+							"host": [
+								"10",
+								"211",
+								"55",
+								"3"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"challenge",
+								"5",
+								"status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /api/challenge/5/reset",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"reset\":true}"
+						},
+						"url": {
+							"raw": "http://10.211.55.3:8000/api/challenge/5/reset",
+							"protocol": "http",
+							"host": [
+								"10",
+								"211",
+								"55",
+								"3"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"challenge",
+								"5",
+								"reset"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Challenge 6 - Broken Function Level Authorization",
+			"item": [
+				{
+					"name": "POST /api/challenge/6/login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseJson = pm.response.json();",
+									"var access_token = responseJson.access_token;",
+									"pm.environment.set(\"access_token\", access_token)",
+									"var user_id = responseJson.user_id;",
+									"pm.environment.set(\"user_id\", user_id)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"username\":\"user1\",\"password\":\"userpassword1\"}"
+						},
+						"url": {
+							"raw": "http://10.211.55.3:8000/api/challenge/6/login",
+							"protocol": "http",
+							"host": [
+								"10",
+								"211",
+								"55",
+								"3"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"challenge",
+								"6",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /api/challenge/6/account",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://10.211.55.3:8000/api/challenge/6/account",
+							"protocol": "http",
+							"host": [
+								"10",
+								"211",
+								"55",
+								"3"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"challenge",
+								"6",
+								"account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /api/challenge/6/admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://10.211.55.3:8000/api/challenge/6/admin",
+							"protocol": "http",
+							"host": [
+								"10",
+								"211",
+								"55",
+								"3"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"challenge",
+								"6",
+								"admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT /api/challenge/6/admin/account/update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\":\"test\",\"role\":\"admin\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://10.211.55.3:8000/api/challenge/6/admin/account/update",
+							"protocol": "http",
+							"host": [
+								"10",
+								"211",
+								"55",
+								"3"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"challenge",
+								"6",
+								"admin",
+								"account",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /api/challenge/6/submit_flag",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"flag\":\"\"}"
+						},
+						"url": {
+							"raw": "http://10.211.55.3:8000/api/challenge/6/submit_flag",
+							"protocol": "http",
+							"host": [
+								"10",
+								"211",
+								"55",
+								"3"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"challenge",
+								"6",
+								"submit_flag"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /api/challenge/6/status",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://10.211.55.3:8000/api/challenge/6/status",
+							"protocol": "http",
+							"host": [
+								"10",
+								"211",
+								"55",
+								"3"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"challenge",
+								"6",
+								"status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /api/challenge/6/reset",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"reset\":true}"
+						},
+						"url": {
+							"raw": "http://10.211.55.3:8000/api/challenge/6/reset",
+							"protocol": "http",
+							"host": [
+								"10",
+								"211",
+								"55",
+								"3"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"challenge",
+								"6",
+								"reset"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "challenge 7 - Mass Assignment",
+			"item": [
+				{
+					"name": "POST /api/challenge/7/login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseJson = pm.response.json();",
+									"var access_token = responseJson.access_token;",
+									"pm.environment.set(\"access_token\", access_token)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"username\":\"user1\",\"password\":\"userpassword1\"}"
+						},
+						"url": {
+							"raw": "http://10.211.55.3:8000/api/challenge/7/login",
+							"protocol": "http",
+							"host": [
+								"10",
+								"211",
+								"55",
+								"3"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"challenge",
+								"7",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /api/challenge/7/account",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://10.211.55.3:8000/api/challenge/7/account",
+							"protocol": "http",
+							"host": [
+								"10",
+								"211",
+								"55",
+								"3"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"challenge",
+								"7",
+								"account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT /api/challenge/7/account",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\":\"test\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://10.211.55.3:8000/api/challenge/7/account",
+							"protocol": "http",
+							"host": [
+								"10",
+								"211",
+								"55",
+								"3"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"challenge",
+								"7",
+								"account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /api/challenge/7/submit_flag",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"flag\":\"\"}"
+						},
+						"url": {
+							"raw": "http://10.211.55.3:8000/api/challenge/7/submit_flag",
+							"protocol": "http",
+							"host": [
+								"10",
+								"211",
+								"55",
+								"3"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"challenge",
+								"7",
+								"submit_flag"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /api/challenge/7/status",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://10.211.55.3:8000/api/challenge/7/status",
+							"protocol": "http",
+							"host": [
+								"10",
+								"211",
+								"55",
+								"3"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"challenge",
+								"7",
+								"status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /api/challenge/7/reset",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"reset\":true}"
+						},
+						"url": {
+							"raw": "http://10.211.55.3:8000/api/challenge/7/reset",
+							"protocol": "http",
+							"host": [
+								"10",
+								"211",
+								"55",
+								"3"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"challenge",
+								"7",
+								"reset"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.test(\"Status code is 200\", function () {",
+					"    pm.response.to.have.status(200);",
+					"});",
+					"pm.test(\"Content-Type is present\", function () {",
+					"    pm.response.to.have.header(\"Content-Type\");",
+					"});"
+				]
+			}
+		}
+	]
+}
